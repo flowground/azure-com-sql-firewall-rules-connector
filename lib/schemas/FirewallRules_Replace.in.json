@@ -1,0 +1,81 @@
+{
+    "type": "object",
+    "properties": {
+        "resourceGroupName": {
+            "required": true,
+            "type": "string"
+        },
+        "serverName": {
+            "required": true,
+            "type": "string"
+        },
+        "subscriptionId": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "A list of server firewall rules.",
+            "properties": {
+                "values": {
+                    "items": {
+                        "allOf": [
+                            {
+                                "allOf": [
+                                    {
+                                        "description": "ARM resource.",
+                                        "properties": {
+                                            "id": {
+                                                "description": "Resource ID.",
+                                                "readOnly": true,
+                                                "type": "string"
+                                            },
+                                            "name": {
+                                                "description": "Resource name.",
+                                                "type": "string"
+                                            },
+                                            "type": {
+                                                "description": "Resource type.",
+                                                "readOnly": true,
+                                                "type": "string"
+                                            }
+                                        },
+                                        "type": "object",
+                                        "x-ms-azure-resource": true
+                                    }
+                                ],
+                                "description": "ARM proxy resource.",
+                                "properties": {},
+                                "type": "object"
+                            }
+                        ],
+                        "description": "A server firewall rule.",
+                        "properties": {
+                            "properties": {
+                                "description": "Resource properties.",
+                                "x-ms-client-flatten": true,
+                                "properties": {
+                                    "endIpAddress": {
+                                        "description": "The end IP address of the firewall rule. Must be IPv4 format. Must be greater than or equal to startIpAddress. Use value '0.0.0.0' for all Azure-internal IP addresses.",
+                                        "type": "string"
+                                    },
+                                    "startIpAddress": {
+                                        "description": "The start IP address of the firewall rule. Must be IPv4 format. Use value '0.0.0.0' for all Azure-internal IP addresses.",
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "api_version": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}
